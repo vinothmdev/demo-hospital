@@ -1,0 +1,10 @@
+h1 {
+  text-align: center;
+}
+
+.right {
+  position: absolute;
+  right: 10px;
+  padding: 10px;
+  background-color: #fff;
+}
