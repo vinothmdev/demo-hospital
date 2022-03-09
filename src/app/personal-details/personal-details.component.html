@@ -1,0 +1,95 @@
+<h1>{{ personType }} Details</h1>
+
+<form action="#">
+  <div class="w3-row-padding">
+    <div class="w3-half">
+      <label for="fname">First Name</label>
+      <input
+        type="text"
+        id="fname"
+        name="firstname"
+        placeholder="First name.."
+      />
+
+      <label for="lname">Last Name</label>
+      <input type="text" id="lname" name="lastname" placeholder="Last name.." />
+      <ng-container *ngIf="personType !== 'Child'">
+        <label for="phone">Phone</label>
+        <input type="text" id="phone" name="phone" placeholder="Phone" />
+
+        <label for="nationalId">National Id</label>
+        <input
+          type="text"
+          id="nationalId"
+          name="nationalId"
+          placeholder="National Id"
+        />
+      </ng-container>
+    </div>
+    <div class="w3-half">
+      <ng-container *ngIf="personType === 'Child'">
+        <label for="dob">Date of Birth</label>
+        <input type="date" id="dob" name="dob" placeholder="Date of Birth" />
+
+        <br />
+        <label>Gender</label><br />
+        <input
+          class="w3-radio"
+          type="radio"
+          name="gender"
+          value="male"
+          checked
+        />
+        <label class="gender">Male</label>
+
+        <input class="w3-radio" type="radio" name="gender" value="female" />
+        <label class="gender">Female</label>
+
+        <label for="eyeColor">Eye color</label>
+        <input
+          type="text"
+          id="eyeColor"
+          name="eyecolor"
+          placeholder="Eye color"
+        />
+        <label for="bloodGroup">Blood Group</label>
+        <select class="w3-select w3-border" name="option">
+          <option value="" disabled selected>Choose Blood Group</option>
+          <ng-container *ngFor="let group of bloodGroups">
+            <option value="group.key">{{ group.value }}</option>
+          </ng-container>
+        </select>
+      </ng-container>
+      <ng-container *ngIf="personType !== 'Child'">
+        <label for="addressLine1">Address Line1</label>
+        <input
+          type="text"
+          id="addressLine1"
+          name="addressLine1"
+          placeholder="Address Line1"
+        />
+
+        <label for="addressLine2">Address Line2</label>
+        <input
+          type="text"
+          id="addressLine2"
+          name="addressLine2"
+          placeholder="Address Line2"
+        />
+
+        <label for="city">City</label>
+        <input type="text" id="city" name="city" placeholder="City" />
+        <label for="state">Sity</label>
+        <input type="text" id="state" name="state" placeholder="State" />
+
+        <label for="postalCode">Postal Code</label>
+        <input
+          type="text"
+          id="postalCode"
+          name="postalCode"
+          placeholder="Postal Code"
+        />
+      </ng-container>
+    </div>
+  </div>
+</form>

@@ -1,0 +1,45 @@
+<div class="w3-container"></div>
+<h1>Birth Registration</h1>
+<div class="w3-bar w3-black">
+  <button class="w3-bar-item w3-button" (click)="openTab('Child Details')">
+    Child Details
+  </button>
+  <button class="w3-bar-item w3-button" (click)="openTab('Father Details')">
+    Father Details
+  </button>
+  <button class="w3-bar-item w3-button" (click)="openTab('Mother Details')">
+    Mother Details
+  </button>
+  <button class="w3-bar-item w3-button" (click)="openTab('Review')">
+    Review And Submit
+  </button>
+</div>
+
+<div id="Child Details" class="w3-container tab">
+  <app-personal-details
+    [personType]="'Child'"
+    [personForm]="fatherDetail"
+  ></app-personal-details>
+</div>
+
+<div id="Father Details" class="w3-container tab" style="display:none">
+  <app-personal-details
+    [personType]="'Father'"
+    [personForm]="fatherDetail"
+  ></app-personal-details>
+</div>
+
+<div id="Mother Details" class="w3-container tab" style="display:none">
+  <app-personal-details
+    [personType]="'Mother'"
+    [personForm]="fatherDetail"
+  ></app-personal-details>
+</div>
+
+<div id="Review" class="w3-container tab" style="display:none">
+  <h4>Please verify all details and Submit</h4>
+
+  <div class="right">
+    <button class="w3-button w3-yellow w3-border" type="submit">Submit</button>
+  </div>
+</div>
