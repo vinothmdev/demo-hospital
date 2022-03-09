@@ -9,6 +9,7 @@
         id="fname"
         name="firstname"
         placeholder="First name.."
+        [formControl]="personForm.get('firstName')"
       />
 
       <label for="lname">Last Name</label>

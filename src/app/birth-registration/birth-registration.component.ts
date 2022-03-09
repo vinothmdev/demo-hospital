@@ -58,4 +58,8 @@ export class BirthRegistrationComponent implements OnInit {
     }
     document.getElementById(name).style.display = 'block';
   }
+
+  submit() {
+    console.log(this.birthForm);
+  }
 }
