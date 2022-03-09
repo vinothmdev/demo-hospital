@@ -1,6 +1,6 @@
 <h1>{{ personType }} Details</h1>
 
-<form action="#">
+<form action="#" [formGroup]="personForm">
   <div class="w3-row-padding">
     <div class="w3-half">
       <label for="fname">First Name</label>
@@ -9,14 +9,26 @@
         id="fname"
         name="firstname"
         placeholder="First name.."
-        [formControl]="personForm.get('firstName')"
+        formControlName="firstName"
       />
 
       <label for="lname">Last Name</label>
-      <input type="text" id="lname" name="lastname" placeholder="Last name.." />
+      <input
+        type="text"
+        id="lname"
+        name="lastname"
+        placeholder="Last name.."
+        formControlName="lastName"
+      />
       <ng-container *ngIf="personType !== 'Child'">
         <label for="phone">Phone</label>
-        <input type="text" id="phone" name="phone" placeholder="Phone" />
+        <input
+          type="text"
+          id="phone"
+          name="phone"
+          placeholder="Phone"
+          formControlName="phone"
+        />
 
         <label for="nationalId">National Id</label>
         <input
@@ -24,13 +36,20 @@
           id="nationalId"
           name="nationalId"
           placeholder="National Id"
+          formControlName="nationalId"
         />
       </ng-container>
     </div>
     <div class="w3-half">
       <ng-container *ngIf="personType === 'Child'">
         <label for="dob">Date of Birth</label>
-        <input type="date" id="dob" name="dob" placeholder="Date of Birth" />
+        <input
+          type="date"
+          id="dob"
+          name="dob"
+          placeholder="Date of Birth"
+          formControlName="dateOfBirth"
+        />
 
         <br />
         <label>Gender</label><br />
@@ -39,25 +58,45 @@
           type="radio"
           name="gender"
           value="male"
+          formControlName="gender"
           checked
         />
         <label class="gender">Male</label>
 
-        <input class="w3-radio" type="radio" name="gender" value="female" />
+        <input
+          class="w3-radio"
+          type="radio"
+          name="gender"
+          value="female"
+          formControlName="gender"
+        />
         <label class="gender">Female</label>
-
+        <br />
         <label for="eyeColor">Eye color</label>
         <input
           type="text"
           id="eyeColor"
           name="eyecolor"
           placeholder="Eye color"
+          formControlName="eyeColor"
+        />
+        <label for="weight">Weight</label>
+        <input
+          type="text"
+          id="weight"
+          name="weight in lb"
+          placeholder="Eye color"
+          formControlName="weight"
         />
         <label for="bloodGroup">Blood Group</label>
-        <select class="w3-select w3-border" name="option">
+        <select
+          class="w3-select w3-border"
+          name="option"
+          formControlName="bloodGroup"
+        >
           <option value="" disabled selected>Choose Blood Group</option>
           <ng-container *ngFor="let group of bloodGroups">
-            <option value="group.key">{{ group.value }}</option>
+            <option [value]="group.key">{{ group.value }}</option>
           </ng-container>
         </select>
       </ng-container>
@@ -68,6 +107,7 @@
           id="addressLine1"
           name="addressLine1"
           placeholder="Address Line1"
+          formControlName="addressLine1"
         />
 
         <label for="addressLine2">Address Line2</label>
@@ -76,12 +116,25 @@
           id="addressLine2"
           name="addressLine2"
           placeholder="Address Line2"
+          formControlName="addressLine2"
         />
 
         <label for="city">City</label>
-        <input type="text" id="city" name="city" placeholder="City" />
-        <label for="state">Sity</label>
-        <input type="text" id="state" name="state" placeholder="State" />
+        <input
+          type="text"
+          id="city"
+          name="city"
+          placeholder="City"
+          formControlName="addressCity"
+        />
+        <label for="state">State</label>
+        <input
+          type="text"
+          id="state"
+          name="state"
+          placeholder="State"
+          formControlName="addressState"
+        />
 
         <label for="postalCode">Postal Code</label>
         <input
@@ -89,6 +142,7 @@
           id="postalCode"
           name="postalCode"
           placeholder="Postal Code"
+          formControlName="addressPostalCode"
         />
       </ng-container>
     </div>

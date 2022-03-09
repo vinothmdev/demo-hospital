@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-birth-registration',
@@ -8,11 +8,15 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 })
 export class BirthRegistrationComponent implements OnInit {
   birthForm: FormGroup;
+  childDetail: FormGroup;
   fatherDetail: FormGroup;
+  motherDetail: FormGroup;
 
-  constructor(public fb: FormBuilder) {
+  constructor(public fb: FormBuilder) {}
+
+  ngOnInit() {
     this.birthForm = this.fb.group({
-      childDetail: {
+      childDetail: this.fb.group({
         firstName: [''],
         lastName: [''],
         eyeColor: [''],
@@ -20,8 +24,8 @@ export class BirthRegistrationComponent implements OnInit {
         bloodGroup: [''],
         weight: [''],
         gender: [''],
-      },
-      fatherDetail: {
+      }),
+      fatherDetail: this.fb.group({
         firstName: [''],
         lastName: [''],
         phone: [''],
@@ -31,8 +35,8 @@ export class BirthRegistrationComponent implements OnInit {
         addressCity: [''],
         addressState: [''],
         addressPostalCode: [''],
-      },
-      motherDetail: {
+      }),
+      motherDetail: this.fb.group({
         firstName: [''],
         lastName: [''],
         phone: [''],
@@ -42,12 +46,12 @@ export class BirthRegistrationComponent implements OnInit {
         addressCity: [''],
         addressState: [''],
         addressPostalCode: [''],
-      },
+      }),
     });
+    this.childDetail = this.birthForm.get('childDetail') as FormGroup;
+    this.motherDetail = this.birthForm.get('motherDetail') as FormGroup;
     this.fatherDetail = this.birthForm.get('fatherDetail') as FormGroup;
   }
-
-  ngOnInit() {}
 
   openTab(name) {
     const x = Array.from(
@@ -60,6 +64,6 @@ export class BirthRegistrationComponent implements OnInit {
   }
 
   submit() {
-    console.log(this.birthForm);
+    console.log(this.birthForm.value);
   }
 }
