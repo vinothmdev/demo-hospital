@@ -1,1 +1,17 @@
-<router-outlet></router-outlet>
+<div class="w3-top w3-bar w3-white w3-wide w3-padding w3-card">
+  <a href="/" class="w3-bar-item w3-button"><b>BC</b> Hospital</a>
+
+  <div class="w3-right w3-hide-small">
+    <a href="/list" class="w3-bar-item w3-button">Patients</a>
+    <a href="/register-birth" class="w3-bar-item w3-button">Birth</a>
+    <a href="/contact" class="w3-bar-item w3-button">Contact</a>
+  </div>
+</div>
+<div id="home" class="w3-content" style="max-width:1564px">
+  <div
+    class="w3-display-container w3-content top-align"
+    style="max-width:1500px;"
+  >
+    <router-outlet></router-outlet>
+  </div>
+</div>
