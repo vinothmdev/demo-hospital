@@ -6,9 +6,17 @@ import { AppComponent } from './app.component';
 import { BirthRegistrationComponent } from './birth-registration/birth-registration.component';
 import { PersonalDetailsComponent } from './personal-details/personal-details.component';
 import { PersonalDetailsSummaryComponent } from './personal-details/personal-details-summary/personal-details-summary.component';
+import { RouterModule } from '@angular/router';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
-  imports: [BrowserModule, FormsModule, ReactiveFormsModule],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
+    RouterModule,
+    AppRoutingModule,
+  ],
   declarations: [
     AppComponent,
     BirthRegistrationComponent,
