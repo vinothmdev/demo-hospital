@@ -27,7 +27,7 @@
         <ng-container *ngFor="let detail of fatherDetail">
           <tr>
             <td>{{ detailsList[detail] }}</td>
-            <td>{{ details?.fatherDetail.detail }}</td>
+            <td>{{ details?.fatherDetail[detail] }}</td>
           </tr>
         </ng-container>
       </table>
@@ -45,7 +45,7 @@
         <ng-container *ngFor="let detail of motherDetail">
           <tr>
             <td>{{ detailsList[detail] }}</td>
-            <td>{{ details?.fatherDetail.detail }}</td>
+            <td>{{ details?.fatherDetail[detail] }}</td>
           </tr>
         </ng-container>
       </table>
