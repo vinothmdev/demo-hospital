@@ -1,10 +1,54 @@
-<table id="child">
-  <ng-container *ngFor="let detail of childDetail">
-    <tr>
-      <th>{{ detailsList[detail] }}</th>
-    </tr>
-    <tr>
-      <td>{{ details.childDetail.detail }}</td>
-    </tr>
-  </ng-container>
-</table>
+<div class="w3-container">
+  <div class="w3-card-4">
+    <header class="w3-container w3-light-grey">
+      <h3>Child Details</h3>
+    </header>
+
+    <div class="w3-container">
+      <table id="child">
+        <ng-container *ngFor="let detail of childDetail">
+          <tr>
+            <td>{{ detailsList[detail] }}</td>
+            <td>{{ details?.childDetail[detail] }}</td>
+          </tr>
+        </ng-container>
+      </table>
+    </div>
+  </div>
+</div>
+<div class="w3-container">
+  <div class="w3-card-4">
+    <header class="w3-container w3-light-grey">
+      <h3>Father Details</h3>
+    </header>
+
+    <div class="w3-container">
+      <table id="child">
+        <ng-container *ngFor="let detail of fatherDetail">
+          <tr>
+            <td>{{ detailsList[detail] }}</td>
+            <td>{{ details?.fatherDetail.detail }}</td>
+          </tr>
+        </ng-container>
+      </table>
+    </div>
+  </div>
+</div>
+<div class="w3-container">
+  <div class="w3-card-4">
+    <header class="w3-container w3-light-grey">
+      <h3>Mother Details</h3>
+    </header>
+
+    <div class="w3-container">
+      <table id="child">
+        <ng-container *ngFor="let detail of motherDetail">
+          <tr>
+            <td>{{ detailsList[detail] }}</td>
+            <td>{{ details?.fatherDetail.detail }}</td>
+          </tr>
+        </ng-container>
+      </table>
+    </div>
+  </div>
+</div>

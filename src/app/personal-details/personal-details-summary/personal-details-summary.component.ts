@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 
 @Component({
@@ -35,9 +35,11 @@ export class PersonalDetailsSummaryComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {
-    let details = this.personForm.value;
-    this.childDetail = Object.keys(details['childDetail']);
-    this.fatherDetail = Object.keys(details['fatherDetail']);
-    this.motherDetail = Object.keys(details['motherDetail']);
+    this.personForm.valueChanges.subscribe(() => {
+      this.details = this.personForm.value;
+      this.childDetail = Object.keys(this.details['childDetail']);
+      this.fatherDetail = Object.keys(this.details['fatherDetail']);
+      this.motherDetail = Object.keys(this.details['motherDetail']);
+    });
   }
 }
